@@ -1,3 +1,6 @@
+//////////////////////////////////////////////////////// DALIS-1
+// kuriu formule lenteles turiniui:
+
 function renderContent( "table-content", data ) {
     let HTML = '';
     for (let i = 0; i < data.length; i++) { 
@@ -24,14 +27,15 @@ if (typeof(stuff.income) !=='number') {
     stuff.expense = 0;
 }
 
-// pasigaminam formule, kaip apskaiciuoti kiekvieno menesio balansiuka:
+// pasigaminam formule, kaip apskaiciuoti kiekvieno menesio balansiuka
 
 let balansas = '';
     if (typeof(stuff.income) || 
     typeof(stuff.expense) ==='number') {
-    balansas = (stuff.income – stuff.expense);
+    balansas = (stuff.income) – (stuff.expense);
     }
 
+ //////////////////////////////////////////////////////// DALIS-2
 // pasigaminam formule metiniu pajamu, islaidu ir metinio balanso apskaiciavimui:
 
 function renderFooter ("table-footer", data) {
@@ -57,25 +61,30 @@ let balansas = '';
 return document.querySelector(target).innerHTML = HTML;
  }
 
+//////////////////////////////////////////////////////// DALIS-3
+// kuriu formule lenteles summariui, kur tures buti ivardinti keturiu menesiu pavadinimai:
 
+function renderSummary ("summary-list", data) {
+    let HTML = '';
+}
 
+let summary = ''; 
+    for (let i = 0; i < data.length; i++) { 
+    const stuff = data[i];
+    
+// duomenu eiluciu generavimas per visas 4 eilutes, t.y. turi buti nurodomi keturi menesiai:
 
-// return document.getElementById(target).innerHTML = HTML;
+HTML += `<div class="item">
+    <div class="value">${stuff.month}</div>
+    <div class="title">${title}</div>
+    </div>`; 
+    return document.querySelector(target).innerHTML = HTML;
+}
 
-// let content =  '';
-// for ( let i=0; i<data.length; i++ ) {
-//     income += `<div class="table-row">
-//                 <div class="cell"> ${data[i].title}</div>
-//                  <div class="cell">${data[i].title}</div>
-//                  <div class="cell">${data[i].title}</div>
-//                  <div class="cell">${data[i].title}</div>
-//                 <div class="cell">${data[i].title}</div>
-//                 </div>`;
-                
+// buvo mažiausiai uždirbta, bet ne mažiau nulio;
 
-                // function renderBlocks( target, data ) {
-                //     let HTML = '';
-                //     let quality = 0;
-                
-                //     for ( let i=0; i<data.length; i++ ) {
-                //         const obj = data[i];
+// buvo daugiausiai uždirbta;
+
+// buvo mažiausiai išlaidų, bet ne mažiau nulio;
+
+// buvo daugiausiai išlaidų;
