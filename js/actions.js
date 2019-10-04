@@ -1,7 +1,9 @@
-// renderContent( 'month', month );
+// renderinu lenteles turini:
 
-// document.querySelector('month').innerHTML = renderContent( months );
+renderContent( 'month', month );
+document.querySelector('month').innerHTML = renderContent( months );
 
-// renderFooter( 'x', x);
 
-// document.querySelector('x').innerHTML = renderFooter( x );
+//renderinu lenteles footeri:
+renderFooter( 'x', x);
+document.querySelector('x').innerHTML = renderFooter( x );
