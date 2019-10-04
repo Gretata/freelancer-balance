@@ -63,28 +63,37 @@ return document.querySelector(target).innerHTML = HTML;
 
 //////////////////////////////////////////////////////// DALIS-3
 // kuriu formule lenteles summariui, kur tures buti ivardinti keturiu menesiu pavadinimai:
-
-function renderSummary ("summary-list", data) {
-    let HTML = '';
+    
+// buvo mažiausiai uždirbta, bet ne mažiau nulio + buvo daugiausiai uždirbta;
+let HTML = '';
+const arr1 = [200, 50, 450, 10, 150, 0, 0, 450, 700, 150, 150, 0]
+const minIncome = Math.min(arr1 > 0)
+const maxIncome = Math.max(arr1)
+return document.querySelector(minIncome, maxIncome).innerHTML = HTML;
 }
 
-let summary = ''; 
-    for (let i = 0; i < data.length; i++) { 
-    const stuff = data[i];
-    
+// buvo mažiausiai išlaidų, bet ne mažiau nulio + buvo daugiausiai išlaidų;
+let HTML = '';
+const arr2 = [50, 0, 200, 300, 50, 50, 50, 120, 400, 0, 30, 200]
+const minExpense = Math.min(arr2 > 0)
+const maxExpense = Math.max(arr2)
+return document.querySelector(minExpense, maxExpense).innerHTML = HTML;
+}
+
 // duomenu eiluciu generavimas per visas 4 eilutes, t.y. turi buti nurodomi keturi menesiai:
 
-HTML += `<div class="item">
-    <div class="value">${stuff.month}</div>
-    <div class="title">${title}</div>
-    </div>`; 
-    return document.querySelector(target).innerHTML = HTML;
-}
+// function renderSummary ("summary-list", data) {
+//     let HTML = '';
+// }
 
-// buvo mažiausiai uždirbta, bet ne mažiau nulio;
+// let summary = ''; 
+//     for (let i = 0; i < data.length; i++) { 
+//     const stuff = data[i];
 
-// buvo daugiausiai uždirbta;
-
-// buvo mažiausiai išlaidų, bet ne mažiau nulio;
-
-// buvo daugiausiai išlaidų;
+// let HTML = '';
+// HTML += `<div class="item">
+//     <div class="value">${stuff.month}</div>
+//     <div class="title">${title}</div>
+//     </div>`; 
+//     return document.querySelector(target).innerHTML = HTML;
+// }
