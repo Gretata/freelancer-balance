@@ -1,4 +1,4 @@
-function renderContent( target, data ) {
+function renderContent( "table-content", data ) {
     let HTML = '';
     for (let i = 0; i < data.length; i++) { 
         const stuff = data[i];
@@ -34,7 +34,7 @@ let balansas = '';
 
 // pasigaminam formule metiniu pajamu, islaidu ir metinio balanso apskaiciavimui:
 
-function renderFooter (target, data) {
+function renderFooter ("table-footer", data) {
     let HTML = '';
 }
 
@@ -53,16 +53,9 @@ let expense = '';
 let balansas = '';
     for (let i = 0; i < data.length; i++) {
     balansas = income - expense;
-    }
-
-// 
-
-
-
-
-
-
-
+   
+return document.querySelector(target).innerHTML = HTML;
+ }
 
 
 
