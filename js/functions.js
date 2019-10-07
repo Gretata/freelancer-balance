@@ -61,12 +61,56 @@ HTML += `<div class="cell" Metines pajamos: ${incomes}, eur </div>
         <div class="cell" Metines islaidos: ${expenses}, eur </div>
         <div class="cell" Metinis balansas: ${incomes}, eur </div>`;
 
-return document.querySelector(id).innerHTML = HTML;
+return document.querySelector('#MyReview.table-footer').innerHTML = HTML;
 }
 
 //////////////////////////////////////////////////////// DALIS-3
 // kuriu formule lenteles summariui, kur tures buti ivardinti keturiu menesiu pavadinimai:
+
+//HMMMM... gal cia galima su forEach padaryt? 
+
+// let HTML = '';
+
+// data.forEach (item => {
+//     if () {
+//        //surasom logika, kas daugiausiai maziausiai ir tralialia 
+//     }
+//     return; 
+// }
+
+// HTML += `<div class="item">
+//         <div class="value">Mėnesio pavadinimas</div>
+//         <div class="title">mėnuo, kai buvo mažiausiai uždirbta,bet ne lygu nuliui</div>`
+
+
+let maxUzdirbta = 0; 
+let minUzdirbta = 0; 
+let maxIsleista = 0;
+let minIsleista = 0; 
+
+for (let i=0; i<list.length; i++) {
+    if  typeof(list[i] === 'number') && (list[i] > 0){
+        continue;
+    }
+
+    if ( list[i] > maxUzdirbta )
+        maxUzdirbta = list[i];
+}
+    return maxUzdirbta;
+}
+
+for (let i=0; i<list.length; i++) {
+    if  typeof(list[i] === 'number') && (list[i] > 0){
+            continue;
+        }
     
+        if ( list[i] > maxIsleista )
+            maxIsleista = list[i];
+    }
+        return maxIsleista;
+        
+// KITAS VARIATNTAS BANDYT GAUT TA PATI
+
 // buvo mažiausiai uždirbta, bet ne mažiau nulio + buvo daugiausiai uždirbta;
 let HTML = '';
 const minIncome = Math.min(arr1 > 0);

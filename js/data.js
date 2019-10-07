@@ -19,3 +19,4 @@ const months = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Geguze', 'Birzelis', 
 
 const arr1 = [200, 50, 450, 10, 150, 0, 0, 450, 700, 150, 150, 0]; 
 const arr2 = [50, 0, 200, 300, 50, 50, 50, 120, 400, 0, 30, 200]; 
+
