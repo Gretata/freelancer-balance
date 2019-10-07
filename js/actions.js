@@ -1,15 +1,12 @@
-//karoce, supratau, kad realiai nesuprantu, kaip nurodyti, IS KUR PAIMTI + KA PAIMTI konkreciais atvejais, todel supyliau X: 
 
 // renderinu lenteles turini:
 
-// renderContent( x', x);
-// document.querySelector('x').innerHTML = renderContent( x );
-
+renderContent( "MyAccount", account );
 
 // //renderinu lenteles footeri:
 
-// renderFooter( 'x', x);
-// document.querySelector('x').innerHTML = renderFooter( x );
+renderFooter( "MyReview", account );
+
 
 // renderinu summary:
 

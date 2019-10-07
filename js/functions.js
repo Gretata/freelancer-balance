@@ -1,99 +1,83 @@
 //////////////////////////////////////////////////////// DALIS-1
-// kuriu formule lenteles turiniui:
+// kuriu formules ir salygas lenteles turiniui sugeneruoti:
 
-function renderContent( "table-content", data ) {
+function renderContent( id, data ) {
     let HTML = '';
     for (let i = 0; i < data.length; i++) { 
-        const stuff = data[i];
-        
+        const obj = data[i];
+
+if (!obj.income || 
+    typeof(obj.income) !== 'number') {
+        obj.income = 0;
+} if (!obj.expense ||
+     typeof(obj.expense) !=='number') {
+        obj.expense = 0;
+}
+let balansas = 0;
+for (let i = 0; i < data.length; i++) { 
+    const obj = data[i];
+
+    if (typeof(obj.income) || 
+        typeof(obj.expense) === 'number') { 
+    balansas = math.subtract('obj.income', 'obj.expense'); 
+}
+
 // duomenu eiluciu generavimas per visas 12 eiluciu, t.y. 12 menesiu
 
     HTML += `<div class="table-row">
-        <div class="cell">${stuff.month}</div>
-        // <div class="cell">${months}</div>
-        <div class="cell">${stuff.income}</div>
-        <div class="cell">${stuff.expense}</div>
+        <div class="cell">${obj.month}</div>
+        <div class="cell">${months}</div>
+        <div class="cell">${obj.income}</div>
+        <div class="cell">${obj.expense}</div>
         <div class="cell">${balansas}</div>
         </div>`; 
     }
-return document.querySelector(target).innerHTML = HTML;
+return document.querySelector('#MyAccount.table-content').innerHTML = HTML;
 }
-
-// jeigu nera ivesta pajamu ir islaidu, tuomet surasyti nulius: 
-
-if (typeof(stuff.income) !=='number') {
-    stuff.income = 0;
-} else if (typeof(stuff.expense) !=='number') {
-    stuff.expense = 0;
-}
-
-// pasigaminam formule, kaip apskaiciuoti kiekvieno menesio balansiuka
-
-let balansas = '';
-    if (typeof(stuff.income) || 
-    typeof(stuff.expense) ==='number') {
-    balansas = (stuff.income) – (stuff.expense);
-    }
 
  //////////////////////////////////////////////////////// DALIS-2
 // pasigaminam formule metiniu pajamu, islaidu ir metinio balanso apskaiciavimui:
 
-function renderFooter ("table-footer", data) {
+function renderFooter ( id, data) {
     let HTML = '';
 }
 
-let income = '';
+let incomes = 0;
 for (let i = 0; i < data.length; i++) {
-const stuff = data[i].income;
-income += stuff; 
+const obj = data[i].income;
+incomes += obj; 
 }
 
-let expense = '';
+let expenses = 0;
     for (let i = 0; i < data.length; i++) {
-    const stuff = data[i].expense;
-    expense += stuff; 
+    const obj = data[i].expense;
+    expenses += obj; 
     }
 
-let balansas = '';
-    for (let i = 0; i < data.length; i++) {
-    balansas = income - expense;
-   
-return document.querySelector(target).innerHTML = HTML;
- }
+let total = 0;
+    total = incomes - expenses;
+
+HTML += `<div class="cell" Metines pajamos: ${incomes}, eur </div>
+        <div class="cell" Metines islaidos: ${expenses}, eur </div>
+        <div class="cell" Metinis balansas: ${incomes}, eur </div>`;
+
+return document.querySelector(id).innerHTML = HTML;
+}
 
 //////////////////////////////////////////////////////// DALIS-3
 // kuriu formule lenteles summariui, kur tures buti ivardinti keturiu menesiu pavadinimai:
     
 // buvo mažiausiai uždirbta, bet ne mažiau nulio + buvo daugiausiai uždirbta;
 let HTML = '';
-const arr1 = [200, 50, 450, 10, 150, 0, 0, 450, 700, 150, 150, 0]
-const minIncome = Math.min(arr1 > 0)
-const maxIncome = Math.max(arr1)
+const minIncome = Math.min(arr1 > 0);
+const maxIncome = Math.max(arr1);
 return document.querySelector(minIncome, maxIncome).innerHTML = HTML;
 }
 
 // buvo mažiausiai išlaidų, bet ne mažiau nulio + buvo daugiausiai išlaidų;
 let HTML = '';
-const arr2 = [50, 0, 200, 300, 50, 50, 50, 120, 400, 0, 30, 200]
-const minExpense = Math.min(arr2 > 0)
-const maxExpense = Math.max(arr2)
+const minExpense = Math.min(arr2 > 0);
+const maxExpense = Math.max(arr2);
 return document.querySelector(minExpense, maxExpense).innerHTML = HTML;
 }
 
-// duomenu eiluciu generavimas per visas 4 eilutes, t.y. turi buti nurodomi keturi menesiai:
-
-// function renderSummary ("summary-list", data) {
-//     let HTML = '';
-// }
-
-// let summary = ''; 
-//     for (let i = 0; i < data.length; i++) { 
-//     const stuff = data[i];
-
-// let HTML = '';
-// HTML += `<div class="item">
-//     <div class="value">${stuff.month}</div>
-//     <div class="title">${title}</div>
-//     </div>`; 
-//     return document.querySelector(target).innerHTML = HTML;
-// }
