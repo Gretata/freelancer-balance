@@ -83,9 +83,9 @@ return document.querySelector('#MyReview.table-footer').innerHTML = HTML;
 //         <div class="title">mėnuo, kai buvo mažiausiai uždirbta,bet ne lygu nuliui</div>`
 
 
-let maxUzdirbta = 0; 
+let maxUzdirbta = +Infinity; 
 let minUzdirbta = 0; 
-let maxIsleista = 0;
+let maxIsleista = +Infinity;
 let minIsleista = 0; 
 
 for (let i=0; i<list.length; i++) {
@@ -108,7 +108,7 @@ for (let i=0; i<list.length; i++) {
             maxIsleista = list[i];
     }
         return maxIsleista;
-        
+
 // KITAS VARIATNTAS BANDYT GAUT TA PATI
 
 // buvo mažiausiai uždirbta, bet ne mažiau nulio + buvo daugiausiai uždirbta;
